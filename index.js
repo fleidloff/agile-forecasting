@@ -1,1 +1,1 @@
-reuire("src/app");
+require("./src/app");
