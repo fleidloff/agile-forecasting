@@ -1,4 +1,5 @@
 var shapecube = require("shapecube");
+var workingDays = require("./workingDays");
 
 // milestone > task > ticket
 
@@ -26,39 +27,7 @@ const input = {
     startDate: "2016-01-04"
 };
 
-// todo: check input
 
-// x = actual tickets / expected tickets
-function ticketFactor(input) {
-    var completedTasks = input.tasks
-        .filter(function(task) {
-            return (typeof task.actualTickets !== "undefined");
-        });
-
-    var ticketFactor = completedTasks.map(function(task) {
-            return task.actualTickets / task.expectedTickets;
-        })
-        .reduce(function(pv, cv, index) {
-            return pv + cv;
-        }, 0) / completedTasks.length;
-
-    return ticketFactor;
+for(var i = 0; i < 10000; i++) {
+    console.log(workingDays(input));
 }
-
-var _ticketFactor = ticketFactor(input)
-
-function remainingTickets(input, ticketFactor) {
-    var remainingTasks = input.tasks
-        .filter(function(task) {
-            return (typeof task.actualTickets === "undefined");
-        });
-
-    // todo: take into consideration: expected tickets!
-    var tickets = (remainingTasks.length + input.unspecifiedTasks) * ticketFactor;
-
-    return Math.ceil(tickets);
-}
-
-var _remainingTickets = remainingTickets(input, _ticketFactor);
-
-console.log(_remainingTickets);
