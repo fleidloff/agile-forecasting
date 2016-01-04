@@ -23,7 +23,7 @@ module.exports = function(input) {
         days++;
         working = reduceAllByOne(working);
         while(working.length < wipLimit && remaining > 0) {
-            working.push(randomDuration(input));
+            working.push(randomDuration(input) - 1); // - 1 because you already work on that task
             remaining--;
         }
     }

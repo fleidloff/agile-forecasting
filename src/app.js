@@ -1,6 +1,6 @@
 var shapecube = require("shapecube");
-var moment = require("moment");
 var workingDays = require("./workingDays");
+var diagram = require("./diagram");
 
 // milestone > task > ticket
 
@@ -25,11 +25,13 @@ const input = {
     wipLimit: 5,
     teamDurations: [1,2,1,1,6,7,4,1,3,1,2,1,1,6,7,4,1,3],
 
-    startDate: "2016-01-04"
+    startDate: "2016-01-04",
+    cycles: 10000
 };
 
 var resultDays = {};
-for(var i = 0; i < 10000; i++) {
+
+for(var i = 0; i < input.cycles; i++) {
     var wd = workingDays(input);
     if (!resultDays[wd]) {
         resultDays[wd] = 0;
@@ -37,7 +39,4 @@ for(var i = 0; i < 10000; i++) {
     resultDays[wd] += 1;
 }
 
-// moment(input.startDate).add(67*7/5, "days").format("YYYY-MM-DD");
-
-console.log(resultDays);
-console.log(moment(input.startDate).add(Object.keys(resultDays)[0]*7/5, "days").format("YYYY-MM-DD"));
+console.log(diagram(resultDays, input));
