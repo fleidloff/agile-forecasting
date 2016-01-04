@@ -15,14 +15,12 @@ function remainingTasks(input) {
 
 // x = actual tickets / expected tickets
 function ticketFactor(completedTasks) {
-    var ticketFactor = completedTasks.map(function(task) {
-            return task.actualTickets / task.expectedTickets;
+    return completedTasks.map(function(task) {
+            return task.actualTickets / (task.expectedTickets || 1);
         })
-        .reduce(function(pv, cv, index) {
+        .reduce(function(pv, cv) {
             return pv + cv;
         }, 0) / completedTasks.length;
-
-    return ticketFactor;
 }
 
 function expectedTicketsPerTask(completedTasks) {
@@ -37,7 +35,7 @@ function expectedTicketsPerTask(completedTasks) {
 function remainingTickets(input, ticketFactor, expectedTicketsPerTask) {
     var expectedTicketsRemainigTasks = input.tasks
         .filter(function(task) {
-            return (typeof task.expectedTickets !== "undefined");    
+            return (typeof task.expectedTickets !== "undefined");
         })
         .map(function(task) {
             return task.expectedTickets * ticketFactor;
@@ -48,7 +46,7 @@ function remainingTickets(input, ticketFactor, expectedTicketsPerTask) {
 
     var unspecifiedTasks = input.tasks
         .filter(function(task) {
-            return (typeof task.expectedTickets === "undefined");    
+            return (typeof task.expectedTickets === "undefined");
         }).length + input.unspecifiedTasks;
 
     var tickets = expectedTicketsRemainigTasks + (unspecifiedTasks * expectedTicketsPerTask * ticketFactor);
