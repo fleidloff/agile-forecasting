@@ -1,33 +1,15 @@
 var shapecube = require("shapecube");
 var workingDays = require("./workingDays");
 var diagram = require("./diagram");
+var input;
 
-// milestone > task > ticket
+try {
+    input = require("../" + process.argv[process.argv.length - 1])
+} catch(err) {
+    console.error("please provide a valid input json file as 1st parameter.");
+    process.exit();
+}
 
-const input = {
-    tasks: [
-        {
-            name: "ms1",
-            expectedTickets: 5,
-            actualTickets: 12
-        },
-        {
-            name: "ms2",
-            expectedTickets: 7,
-            actualTickets: 12
-        },
-        {
-            name: "ms3"
-        }
-    ],
-    unspecifiedTasks: 7,
-
-    wipLimit: 5,
-    teamDurations: [1,2,1,1,6,7,4,1,3,1,2,1,1,6,7,4,1,3],
-
-    startDate: "2016-01-04",
-    cycles: 10000
-};
 
 var resultDays = {};
 
