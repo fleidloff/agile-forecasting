@@ -4,7 +4,7 @@ var diagram = require("./diagram");
 var input;
 
 try {
-    input = require("../" + process.argv[process.argv.length - 1])
+    input = require("../projects/" + process.argv[process.argv.length - 1])
 } catch(err) {
     console.error("please provide a valid input json file as 1st parameter.");
     process.exit();
