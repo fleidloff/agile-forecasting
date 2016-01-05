@@ -13,6 +13,15 @@ function reduceAllByOne(arr) {
     });
 }
 
+function shouldAdd(workingLength, wipLimit) {
+    if (workingLength >= wipLimit) {
+        return false;
+    }
+    return true;
+    // var p = Math.random() <= ((wipLimit- workingLength) / wipLimit);
+    // return p;
+}
+
 module.exports = function(input) {
     var remaining = remainingTickets(input);
     var working = [];
@@ -22,8 +31,8 @@ module.exports = function(input) {
     while (remaining > 0 || working.length > 0) {
         days++;
         working = reduceAllByOne(working);
-        while(working.length < wipLimit && remaining > 0) {
-            working.push(randomDuration(input) - 1); // - 1 because you already work on that task
+        while(remaining > 0 && shouldAdd(working.length, input.wipLimit)) {
+            working.push(randomDuration(input) - 1); // -1 because we already work on the task when we pull it
             remaining--;
         }
     }
