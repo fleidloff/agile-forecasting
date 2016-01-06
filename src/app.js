@@ -1,6 +1,7 @@
 var shapecube = require("shapecube");
 var workingDays = require("./workingDays");
 var diagram = require("./diagram");
+var mdTable = require("./mdTable");
 var input;
 
 try {
@@ -21,4 +22,4 @@ for(var i = 0; i < input.cycles; i++) {
     resultDays[wd] += 1;
 }
 
-console.log(diagram(resultDays, input));
+console.log(mdTable(diagram(resultDays, input)));
