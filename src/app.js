@@ -2,6 +2,7 @@ var shapecube = require("shapecube");
 var workingDays = require("./workingDays");
 var diagram = require("./diagram");
 var mdTable = require("./mdTable");
+var fs = require("fs");
 var input;
 
 try {
@@ -22,4 +23,11 @@ for(var i = 0; i < input.cycles; i++) {
     resultDays[wd] += 1;
 }
 
-console.log(mdTable(diagram(resultDays, input)));
+var data = mdTable(diagram(resultDays, input));
+
+fs.writeFile("./projects/" + process.argv[process.argv.length - 1] + ".md", data, { flags: 'wx' }, function (err) {
+    if (err) throw err;
+    console.log("It's saved!");
+});
+
+console.log(data);
