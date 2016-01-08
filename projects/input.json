@@ -11,8 +11,7 @@
             "actualTickets": 12
         },
         {
-            "name": "ms3",
-            "expectedTickets": 1
+            "name": "ms3"
         }
     ],
     "unspecifiedTasks": 7,
