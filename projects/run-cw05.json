@@ -1,0 +1,16 @@
+{
+    "tasks": [
+        {
+            "name": "CAN",
+            "expectedTickets": 1,
+            "actualTickets": 10
+        }
+    ],
+    "unspecifiedTasks": 10,
+
+    "wipLimit": 7,
+    "teamDurations": [0,2,1,9,9,1,8,0,7,4,2],
+
+    "startDate": "2016-01-18",
+    "cycles": 10000
+}
