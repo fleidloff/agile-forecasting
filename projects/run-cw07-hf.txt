@@ -1,0 +1,28 @@
+								estimate	calculated	tickets   (in mandays)
+navigation service: 			15 days					4
+auth service					12 days					1
+composer						15 days					6
+inventory list webapp			133						19
+								---------
+								175 man days * 1.5 = 262.5
+
+list of vehicles for a dealer	20 days
+translations 2.5
+auth header 2
+account aware 10
+feature booking 15
+pagination 6
+filtering 20
+statistics 8
+vehicle details tab 10
+bulk feature booking 8
+recommmendations 6
+robot tests 5
+GA tracking 3
+Advertising 2.5
+enhance logging 3
+graphite 2
+circuit breaker 3
+blocked ad feature 5
+security 2
+

@@ -1,0 +1,34 @@
+{
+  "tasks": [
+    {
+      "name": "CAN",
+      "expectedTickets": 1,
+      "actualTickets": 1.5
+    },
+    {
+      "name": "navigation service",
+      "expectedTickets": 4
+    },
+    {
+      "name": "auth service",
+      "expectedTickets": 1
+    },
+    {
+      "name": "composer",
+      "expectedTickets": 6
+    },
+    {
+      "name": "inventory",
+      "expectedTickets": 19
+    }
+
+  ],
+  "unspecifiedTasks": 0,
+
+  "wipLimit": 7,
+  "teamDurations2": [0,2,1,9,9,1,8,0,7,4,2,7,5,4,6,1],
+  "teamDurations": [0,2,1,9,9,1,8,0,7,4,2,21,34,7,5,4,6,14,1],
+
+  "startDate": "2016-02-16",
+  "cycles": 10000
+}
